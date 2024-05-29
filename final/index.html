@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AG311 Group 9</title>
+<style>
+.tb {
+    border: 1px solid red;
+}
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.hero {
+    background-size: cover;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.feature-icon {
+    font-size: 50px;
+    color: #007bff;
+}
+#globe-one-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+#slideshow-container {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 5%;
+    bottom: 5%;
+    height: 90%;
+    z-index: 1;
+    overflow: hidden;
+}
+#control {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    height: 10%;
+    z-index: 1;
+    overflow: hidden;
+}
+.slide {
+}
+.hfull {
+    height: 100%;
+}
+.space {
+    height: 1rem;
+}
+</style>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-dark text-white">
+
+    <div id="globe-one-container">
+        <div id="globe-one"></div>
+    </div>
+
+    <div id="slideshow-container" class="container-xxl">
+        <div class="slide row row-cols-sm-2 align-items-center hfull">
+            <div class="d-flex flex-wrap text-center">
+                <img src="firms-us-ca.png" alt="firms us and canada" class="img-fluid">
+            </div>
+             <div class="">
+                <h2 class="d-none d-sm-block">Fire Information for Resource Management System</h2>
+                <div class="space d-none d-sm-block"></div>
+                <p class="fw-bold">FIRMS is a service that provides satellite imagery to support strategic fire management.</p>
+                <p class="fw-bold">It is a joint project between NASA and the US Forest Service.</p>
+                <p class="fw-bold">A Fire Data API is available to analyze fire regions.</p>
+                <div class="space d-none d-sm-block"></div>
+            </div>
+
+        </div>   
+
+        <div class="slide row row-cols-sm-2 align-items-center hfull visually-hidden">
+            <div class="text-center justify-content-center border-right">
+                <img src="scientific-reports-1.png" 
+                    alt="Wildfire spreading prediction using multimodal data and deep neural network approach"
+                    class="img-fluid mx-6">
+                <div class="space"></div>
+                <img src="scientific-reports-2.png" 
+                    alt="Wildfire spreading prediction using multimodal data and deep neural network approach"
+                    class="img-fluid d-none d-sm-block">
+            </div>
+
+             <div class="text-center">
+                <h2 class="d-none d-sm-block">Facilitating Rapid Decision-Making</h2>
+                <div class="space d-none d-sm-block"></div>
+                <p class="fw-bold">Create new models to predict fire behavior based on weather and fuel conditions.</p>
+                <p class="fw-bold">Further research is needed to better predict fire behavior using existing models.</p>
+                <div class="space"></div>
+            </div>
+
+        </div>   
+
+        <div class="slide row row-cols-sm-2 align-items-center hfull visually-hidden">
+            <div class="text-center justify-content-center border-right">
+                <img src="next-day-1.png" 
+                    alt=""
+                    class="img-fluid mx-6">
+                <div class="space"></div>
+                <img src="next-day-2.png" 
+                    alt=""
+                    class="img-fluid d-none d-sm-block">
+            </div>
+
+             <div class="text-center">
+                 <h2>Use Wildfire Models</h2>
+                <div class="space d-none d-sm-block"></div>
+                <p class="fw-bold">Models can be used to demostrate how local burning could improve the landscape.</p>
+                <p class="fw-bold">Setting residents at ease with proper planning will enable future burns.</p>
+                <div class="space"></div>
+            </div>
+
+        </div>   
+
+        <div class="slide col hfull text-center visually-hidden">
+            <h2>Sources:</h2>
+            <div><a href="https://firms.modaps.eosdis.nasa.gov/usfs/" target="_blank">FIRMS</a></div>
+            <div><a href="https://www.nature.com/articles/s41598-024-52821-x" target="_blank">Nature.com/scientificreports</a></div>
+            <div><a href="https://arxiv.org/pdf/2112.02447" target="_blank">Next Day Wildfire Spread</a></div>
+        </div>   
+
+        <!-- two column with prev and next button -->
+        <div id="control" class="row align-items-end text-center">
+            <div class="">
+                <button class="btn btn-outline-light col-4">Prev</button>
+                <button class="btn btn-outline-light col-4">Next</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/447eb80237.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="//unpkg.com/globe.gl"></script>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        console.log(slides);
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            console.log(slides[currentSlide]);
+            slides[currentSlide].classList.add('visually-hidden');
+            currentSlide = (n + slides.length) % slides.length;
+            console.log(slides[currentSlide]);
+            slides[currentSlide].classList.remove('visually-hidden');
+        }
+
+        document.querySelector('#control').addEventListener('click', e => {
+            if (e.target.matches('button')) {
+                console.log(e.target.textContent);
+                showSlide(currentSlide + (e.target.textContent === 'Next' ? 1 : -1));
+            }
+        });
+
+        showSlide(0);
+    </script>
+ 
+
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'dark',
+            themeVariables: {
+                darkMode: true,
+                fontSize: '18px',
+            }
+        });
+    </script>
+
+    <script type="module">
+        const year = new Date().getFullYear();
+        //document.getElementById('year').textContent = year;
+    </script>
+
+
+    <script>
+        const gData = [...Array(36).keys()].map(() => ({
+            lat: (Math.random() - 0.5) * 180,
+            lng: (Math.random() - 0.5) * 360,
+            maxR: Math.random() * 20 + 3,
+            propagationSpeed: (Math.random() - 0.5) + 1,
+            repeatPeriod: Math.random() * 2000 + 150
+        }));
+
+        const colorInterpolator = t => `rgba(255,100,50,${Math.sqrt(1-t)})`;
+        const globeViz = document.getElementById('globe-one')
+
+        const globe = Globe()
+            (globeViz)
+            .pointOfView({ altitude: 0.7})
+            .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+            .ringsData(gData)
+            .ringColor(() => colorInterpolator)
+            .ringMaxRadius('maxR')
+            .ringPropagationSpeed('propagationSpeed')
+            .ringRepeatPeriod(3000);
+
+        globe.controls().autoRotate = true;
+        globe.controls().autoRotateSpeed = 0.7;
+
+    </script>
+</body>
+
