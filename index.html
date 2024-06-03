@@ -61,6 +61,15 @@
 .hfull {
     height: 100%;
 }
+.half {
+    width: 350px;
+}
+
+@media (max-width: 400px) {
+    .half {
+        width: 250px;
+    }
+}
 .space {
     height: 1rem;
 }
@@ -75,6 +84,26 @@
     </div>
 
     <div id="slideshow-container" class="container-xxl">
+        <div class="slide col justify-content-center hfull">
+             <div class="text-center mb-4">
+                <h2 class="d-sm-block">Geographic Information Systems</h2>
+                <div class="space"></div>
+                <p class="fw-bold">Leverage NASA's GIS data via mapping, analysis, and modeling.</p>
+                <div class="text-center">
+                    <img src="gisintro.png" alt="gis intro" class="img-fluid half">
+                </div>
+            </div>
+            <hr/>
+            <div class="text-center">
+                <h2 class="d-sm-block">Fire Management</h2>
+                <div class="space"></div>
+                <p class="fw-bold">Use working knowledge of fire management to allocate resources.</p>
+                <div class="text-center">
+                    <img src="fireintro.png" alt="fire management intro" class="img-fluid half">
+                </div>
+            </div>
+        </div>   
+
         <div class="slide row row-cols-sm-2 align-items-center hfull">
             <div class="d-flex flex-wrap text-center">
                 <img src="firms-us-ca.png" alt="firms us and canada" class="img-fluid">
@@ -87,8 +116,19 @@
                 <p class="fw-bold">A Fire Data API is available to analyze fire regions.</p>
                 <div class="space d-none d-sm-block"></div>
             </div>
-
         </div>   
+
+        <div class="slide row row-cols-sm-2 align-items-center hfull">
+            <div class="d-flex flex-wrap text-center">
+                <img src="earthdata.png" alt="nasa's earthdata" class="img-fluid">
+            </div>
+             <div class="">
+                <h2 class="d-none d-sm-block">NASA's EarthData</h2>
+                <div class="space d-none d-sm-block"></div>
+                <p class="fw-bold">Unrestricted access to over 90 petabytes of Earth science data</p>
+                <div class="space d-none d-sm-block"></div>
+            </div>
+        </div> 
 
         <div class="slide row row-cols-sm-2 align-items-center hfull visually-hidden">
             <div class="text-center justify-content-center border-right">
